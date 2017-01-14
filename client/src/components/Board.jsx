@@ -5,7 +5,7 @@ const Board = function(props) {
   return(
     <div>
       {props.characters.map(function(character, index) {
-        return(<Cell character={character} key={index}></Cell>)
+        return(<Cell character={character} key={index} index={index}></Cell>)
       })}
     </div>
   )

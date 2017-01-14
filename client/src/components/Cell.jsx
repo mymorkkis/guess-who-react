@@ -1,8 +1,7 @@
 import React from 'react';
 
 const Cell = function(character) {
-  console.log(character)
-  return(<div className="cell">
+  return(<div className="cell" id={`character${character.index}`}>
     <img src={character.character.picture}/>{character.character.name}</div>)
 };
 

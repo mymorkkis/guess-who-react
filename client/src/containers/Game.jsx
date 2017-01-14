@@ -1,28 +1,36 @@
 import React from 'react';
-import Board from '../components/Board.jsx'
+import Board from '../components/Board.jsx';
+import QuestionSelector from '../components/QuestionSelector.jsx';
 
 class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      grid: this.props.characters
+      selectValue: ""
+      // grid: this.props.characters
       // player: 1st player here?
-    }
-    // this.handleCellClick = this.handleCellClick.bind(this)
+    };
+    this.handleSelectChange = this.handleSelectChange.bind(this);
   }
-  // handleCellClick(e) {
-  //   // could be to click on character etc
-  //   const index = e.target.value
-  //   const copyOfGrid = this.state.grid.slice()
-  //   copyOfGrid[index] = ""
-  //   this.setState({grid: copyOfGrid})
-  //   //RANDOM SHIT NEEDS CHANGING
-  // }
+  handleSelectChange(e) {
+    this.setState({selectValue: e.target.value});
+    this.characterCheck(e.target.value);
+    
+  }
+  characterCheck(selectValue) {
+    console.log(selectValue)
+    this.props.characters.forEach(function(character) {
+      if (character[selectValue] === false) {
+        console.log(character)
+      }
+    })
+  }
   render() {
     return(
       <div>
         <h1>Guess who blud!</h1>
         <Board characters={this.props.characters}/>
+        <QuestionSelector questions={this.props.questions} onChange={this.handleSelectChange}/>
       </div>
     )
   }
