@@ -20,6 +20,7 @@ class Game extends React.Component {
   }
 
   handleButtonClick(e) {
+    console.log(this.chosenCharacter)
     const updatedGrid = this.state.startGrid;
     const chosenCharacter = this.chosenCharacter.id.toString();
     const value = e.target.value;
@@ -28,12 +29,15 @@ class Game extends React.Component {
 
     singleCharacterCheck(this, value, chosenCharacter, updatedGrid, addToGuesses)
 
-    isGameFinished(this, this.state.guesses)
+    isGameFinished(this, addToGuesses)
   }
 
   handleSelectChange(e) {
     let addToGuesses = this.state.guesses;
     addToGuesses ++;
+
+    console.log(this)
+    console.log(e.target.index)
 
     multipleCharacterCheck(this, e.target.value);
 

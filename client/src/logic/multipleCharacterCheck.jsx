@@ -7,6 +7,7 @@ const multipleCharacterCheck = function(gameGrid, selectValue) {
   } else {
     chosenValue(selectValue, gameGrid, true)
   }
+  questionDeleter(gameGrid, selectValue)
 }
 
 const chosenValue = function(selectValue, grid, boolean) {
@@ -16,6 +17,18 @@ const chosenValue = function(selectValue, grid, boolean) {
       grid.state.startGrid[character.id].name = 'Not me blud!';
     }
   })
-};
+}
+
+const questionDeleter = function(grid, value) {
+  grid.props.questions.forEach(function(question, index, questions) {
+    if (question.value === value) {
+      questions.splice(index, 1);
+    }
+  })
+
+  if (grid.state.guesses === 0) {
+    grid.props.questions.splice(0, 1);
+  }
+}
 
 export default multipleCharacterCheck;

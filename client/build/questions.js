@@ -28,6 +28,10 @@ const questions = [
     "value": "brownHair"
   },
   {
+    "question": "Is their hair black?",
+    "value": "blackHair"
+  },
+  {
     "question": "Is their hair blonde?",
     "value": "blondeHair"
   },
