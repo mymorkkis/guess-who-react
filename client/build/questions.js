@@ -12,7 +12,7 @@ const questions = [
     "value": "glasses"
   },
   {
-    "question": "Are they female?",
+    "question": "Are they male?",
     "value": "male"
   },
   {
