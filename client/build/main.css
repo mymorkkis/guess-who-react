@@ -26,9 +26,15 @@ body{
 
 .cell button{
   margin-top: 5px;
+  border-radius: 5px;
+  border-color: beige;
+  box-shadow: none;
+  background-color: #F0F8FF;
+  width: 90px;
 }
 
 h1{
+  font-size: 50px;
   text-align: center;
 }
 
@@ -42,8 +48,13 @@ h1{
 }
 
 #guesses{
+  margin-left: 220px;
+  float: left;
+  font-size: 30px;
+}
+
+#best-score{
   margin-right: 30px;
   float: right;
   font-size: 30px;
-  text-align: right;
 }
