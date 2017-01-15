@@ -36,9 +36,6 @@ class Game extends React.Component {
     let addToGuesses = this.state.guesses;
     addToGuesses ++;
 
-    console.log(this)
-    console.log(e.target.index)
-
     multipleCharacterCheck(this, e.target.value);
 
     this.setState({
