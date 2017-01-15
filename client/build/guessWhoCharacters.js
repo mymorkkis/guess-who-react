@@ -10,7 +10,7 @@ const characters = [
     "gingerHair": false,
     "undefinedHair": true,
     "glasses": false,
-    "beard": true,
+    "beard": false,
     "umbrella": false,
     "goodLooking": true
   },
