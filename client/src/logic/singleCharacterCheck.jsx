@@ -1,19 +1,17 @@
 import React from 'react';
 
-const singleCharacterCheck = function(game, guessedCharacter, actualCharacter, grid, addToGuesses) {
+const singleCharacterCheck = function(grid, guessedCharacter, actualCharacter) {
   
   if (guessedCharacter === actualCharacter) {
     grid[guessedCharacter].picture = '/guess_who_players/me.png';
-    grid[guessedCharacter].name = "It's me blud!!!!!";
+    grid[guessedCharacter].name = "It's me!!!!!";
   } else {
     grid[guessedCharacter].picture = '/guess_who_players/x.png';
-    grid[guessedCharacter].name = 'Not me blud!';
+    grid[guessedCharacter].name = 'Not me!!!';
   }
+  
+  return grid;
 
-  game.setState({
-    startGrid: grid,
-    guesses: addToGuesses
-  })
 };
 
 export default singleCharacterCheck;

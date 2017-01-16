@@ -1,25 +1,29 @@
 import React from 'react';
 
-const isGameFinished = function(game, currentGuesses) {
-  const previousBestScore = game.bestScore;
+const isGameFinished = function(grid, currentGuesses, bestScore) {
 
-  game.state.startGrid.forEach(function(character) {
-    if (character.name === "It's me blud!!!!!") {
-      if (currentGuesses < previousBestScore) {
+  grid.forEach(function(character) {
+    if (character.name === "It's me!!!!!") {
+      if (currentGuesses < bestScore) {
         localStorage.setItem('bestScore', JSON.stringify(currentGuesses));
       }
-      gameFinished(game)
+      return gameFinished(grid);
     }
   })
+  
+  return grid;
 }
 
-const gameFinished = function(game) {
-  game.state.startGrid.forEach(function(character) {
-    if (character.name !== "It's me blud!!!!!") {
-      game.state.startGrid[character.id].picture = '/guess_who_players/x.png';
-      game.state.startGrid[character.id].name = 'Not me blud!';
+const gameFinished = function(grid) {
+
+  grid.forEach(function(character) {
+    if (character.name !== "It's me!!!!!") {
+      grid[character.id].picture = '/guess_who_players/x.png';
+      grid[character.id].name = 'Not me!!!';
     }
   })
+
+  return grid;
 }
 
 export default isGameFinished;

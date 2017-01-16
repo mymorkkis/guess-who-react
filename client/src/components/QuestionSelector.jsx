@@ -6,7 +6,7 @@ class QuestionSelector extends React.Component {
   }
   render() {
     return(
-      <select id="question-selector" onChange={this.props.onChange}>
+      <select id="question-selector" value="initialSelector" onChange={this.props.onChange}>
         {this.props.questions.map(function(question, index) {
           return(
             <option key={index} value={question.value}>{question.question}</option>

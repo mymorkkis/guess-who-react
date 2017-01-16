@@ -3,6 +3,7 @@ import Board from '../components/Board.jsx';
 import QuestionSelector from '../components/QuestionSelector.jsx';
 import singleCharacterCheck from '../logic/singleCharacterCheck.jsx';
 import multipleCharacterCheck from '../logic/multipleCharacterCheck.jsx';
+import questionDeleter from '../logic/questionDeleter.jsx'
 import isGameFinished from '../logic/isGameFinished.jsx';
 
 class Game extends React.Component {
@@ -10,7 +11,8 @@ class Game extends React.Component {
     super(props);
     this.state = {
       selectValue: "",
-      startGrid: this.props.characters,
+      grid: this.props.characters,
+      questions: this.props.questions,
       guesses: 0
     };
     this.handleSelectChange = this.handleSelectChange.bind(this);
@@ -21,25 +23,40 @@ class Game extends React.Component {
 
   handleButtonClick(e) {
     console.log(this.chosenCharacter)
-    const updatedGrid = this.state.startGrid;
-    const chosenCharacter = this.chosenCharacter.id.toString();
+    const newGrid = this.state.grid.slice();
+    const chosenCharacterId = this.chosenCharacter.id.toString();
     const value = e.target.value;
+    const currentBestScore = this.bestScore
     let addToGuesses = this.state.guesses;
     addToGuesses ++;
 
-    singleCharacterCheck(this, value, chosenCharacter, updatedGrid, addToGuesses)
+    const updatedGrid = singleCharacterCheck(newGrid, value, chosenCharacterId)
 
-    isGameFinished(this, addToGuesses)
+    const checkIfFinishedGrid = isGameFinished(updatedGrid, addToGuesses, currentBestScore)
+    console.log(checkIfFinishedGrid)
+
+    this.setState({
+      grid: checkIfFinishedGrid,
+      guesses: addToGuesses
+    })
   }
 
   handleSelectChange(e) {
+    const newGrid = this.state.grid.slice();
+    const selectValue = e.target.value;
+    const chosenCharacter = this.chosenCharacter;
+    const questions = this.state.questions;
     let addToGuesses = this.state.guesses;
     addToGuesses ++;
 
-    multipleCharacterCheck(this, e.target.value);
+    const updatedGrid =  multipleCharacterCheck(newGrid, chosenCharacter, selectValue);
+
+    const questionaskedDeleted = questionDeleter(questions, addToGuesses, selectValue)
 
     this.setState({
-      selectValue: e.target.value,
+      selectValue: selectValue,
+      grid: updatedGrid,
+      questions: questionaskedDeleted,
       guesses: addToGuesses
     }); 
   }
@@ -47,8 +64,8 @@ class Game extends React.Component {
   render() {
     return(
       <div>
-      <h1>Guess who blud!</h1>
-      <Board characters={this.state.startGrid} onButtonClick={this.handleButtonClick}/>
+      <h1>Guess who's top of Cohort 7!</h1>
+      <Board characters={this.props.characters} onButtonClick={this.handleButtonClick}/>
       <QuestionSelector questions={this.props.questions} onChange={this.handleSelectChange}/>
       <p id="guesses">No of guesses: {this.state.guesses}</p>
       <p id="best-score">Best score: {this.bestScore}</p>
