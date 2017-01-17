@@ -1,10 +1,10 @@
 import React from 'react';
 import Board from '../components/Board.jsx';
 import QuestionSelector from '../components/QuestionSelector.jsx';
-import singleCharacterCheck from '../logic/singleCharacterCheck.jsx';
-import multipleCharacterCheck from '../logic/multipleCharacterCheck.jsx';
-import questionDeleter from '../logic/questionDeleter.jsx'
-import isGameFinished from '../logic/isGameFinished.jsx';
+import singleCharacterCheck from '../functions/singleCharacterCheck.jsx';
+import multipleCharacterCheck from '../functions/multipleCharacterCheck.jsx';
+import questionDeleter from '../functions/questionDeleter.jsx'
+import isGameFinished from '../functions/isGameFinished.jsx';
 
 class Game extends React.Component {
   constructor(props) {
@@ -22,7 +22,6 @@ class Game extends React.Component {
   }
 
   handleButtonClick(e) {
-    console.log(this.chosenCharacter)
     const newGrid = this.state.grid.slice();
     const chosenCharacterId = this.chosenCharacter.id.toString();
     const value = e.target.value;
@@ -33,7 +32,6 @@ class Game extends React.Component {
     const updatedGrid = singleCharacterCheck(newGrid, value, chosenCharacterId)
 
     const checkIfFinishedGrid = isGameFinished(updatedGrid, addToGuesses, currentBestScore)
-    console.log(checkIfFinishedGrid)
 
     this.setState({
       grid: checkIfFinishedGrid,
@@ -51,12 +49,12 @@ class Game extends React.Component {
 
     const updatedGrid =  multipleCharacterCheck(newGrid, chosenCharacter, selectValue);
 
-    const questionaskedDeleted = questionDeleter(questions, addToGuesses, selectValue)
+    const questionAskedDeleted = questionDeleter(questions, addToGuesses, selectValue)
 
     this.setState({
       selectValue: selectValue,
       grid: updatedGrid,
-      questions: questionaskedDeleted,
+      questions: questionAskedDeleted,
       guesses: addToGuesses
     }); 
   }
