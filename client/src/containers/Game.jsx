@@ -29,12 +29,12 @@ class Game extends React.Component {
     let addToGuesses = this.state.guesses;
     addToGuesses ++;
 
-    const updatedGrid = singleCharacterCheck(newGrid, value, chosenCharacterId)
+    const gridAfterCharacterCheck = singleCharacterCheck(newGrid, value, chosenCharacterId)
 
-    const checkIfFinishedGrid = isGameFinished(updatedGrid, addToGuesses, currentBestScore)
+    const updatedGrid = isGameFinished(gridAfterCharacterCheck, addToGuesses, currentBestScore)
 
     this.setState({
-      grid: checkIfFinishedGrid,
+      grid: updatedGrid,
       guesses: addToGuesses
     })
   }
