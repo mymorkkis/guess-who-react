@@ -20,8 +20,8 @@ const questions = [
     "value": "umbrella"
   },
   {
-    "question": "Are they good looking?",
-    "value": "goodLooking"
+    "question": "Are they smiling?",
+    "value": "smiling"
   },
   {
     "question": "Is their hair brown?",

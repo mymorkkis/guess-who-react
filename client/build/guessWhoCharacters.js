@@ -12,7 +12,7 @@ const characters = [
     "glasses": false,
     "beard": false,
     "umbrella": false,
-    "goodLooking": true
+    "smiling": true
   },
   {
     "id": 1,
@@ -27,7 +27,7 @@ const characters = [
     "glasses": false,
     "beard": false,
     "umbrella": false,
-    "goodLooking": true
+    "smiling": true
   },
   {
     "id": 2,
@@ -42,7 +42,7 @@ const characters = [
     "glasses": false,
     "beard": false,
     "umbrella": false,
-    "goodLooking": true
+    "smiling": true
   },
   {
     "id": 3,
@@ -57,7 +57,7 @@ const characters = [
     "glasses": false,
     "beard": false,
     "umbrella": false,
-    "goodLooking": true
+    "smiling": true
   },
   {
     "id": 4,
@@ -72,7 +72,7 @@ const characters = [
     "glasses": true,
     "beard": true,
     "umbrella": false,
-    "goodLooking": true
+    "smiling": true
   },
   {
     "id": 5,
@@ -87,7 +87,7 @@ const characters = [
     "glasses": true,
     "beard": false,
     "umbrella": false,
-    "goodLooking": true
+    "smiling": true
   },
   {
     "id": 6,
@@ -102,7 +102,7 @@ const characters = [
     "glasses": false,
     "beard": false,
     "umbrella": false,
-    "goodLooking": true
+    "smiling": true
   },
   {
     "id": 7,
@@ -117,7 +117,7 @@ const characters = [
     "glasses": false,
     "beard": true,
     "umbrella": false,
-    "goodLooking": true
+    "smiling": true
   },
   {
     "id": 8,
@@ -132,7 +132,7 @@ const characters = [
     "glasses": false,
     "beard": false,
     "umbrella": false,
-    "goodLooking": true
+    "smiling": true
   },
   {
     "id": 9,
@@ -147,7 +147,7 @@ const characters = [
     "glasses": false,
     "beard": false,
     "umbrella": false,
-    "goodLooking": true
+    "smiling": true
   },
   {
     "id": 10,
@@ -162,7 +162,7 @@ const characters = [
     "glasses": false,
     "beard": false,
     "umbrella": false,
-    "goodLooking": true
+    "smiling": true
   },
   {
     "id": 11,
@@ -177,7 +177,7 @@ const characters = [
     "glasses": false,
     "beard": false,
     "umbrella": false,
-    "goodLooking": true
+    "smiling": true
   },
   {
     "id": 12,
@@ -192,7 +192,7 @@ const characters = [
     "glasses": true,
     "beard": false,
     "umbrella": false,
-    "goodLooking": true
+    "smiling": true
   },
   {
     "id": 13,
@@ -207,7 +207,7 @@ const characters = [
     "glasses": false,
     "beard": false,
     "umbrella": false,
-    "goodLooking": true
+    "smiling": true
   },
   {
     "id": 14,
@@ -222,7 +222,7 @@ const characters = [
     "glasses": false,
     "beard": false,
     "umbrella": false,
-    "goodLooking": true
+    "smiling": true
   },
   {
     "id": 15,
@@ -237,7 +237,7 @@ const characters = [
     "glasses": true,
     "beard": true,
     "umbrella": false,
-    "goodLooking": true
+    "smiling": true
   },
   {
     "id": 16,
@@ -252,7 +252,7 @@ const characters = [
     "glasses": false,
     "beard": false,
     "umbrella": false,
-    "goodLooking": true
+    "smiling": true
   },
   {
     "id": 17,
@@ -267,7 +267,7 @@ const characters = [
     "glasses": false,
     "beard": false,
     "umbrella": false,
-    "goodLooking": true
+    "smiling": true
   },
   {
     "id": 18,
@@ -282,7 +282,7 @@ const characters = [
     "glasses": false,
     "beard": true,
     "umbrella": false,
-    "goodLooking": true
+    "smiling": true
   },
   {
     "id": 19,
@@ -297,7 +297,7 @@ const characters = [
     "glasses": false,
     "beard": false,
     "umbrella": false,
-    "goodLooking": true
+    "smiling": true
   },
   {
     "id": 20,
@@ -312,7 +312,7 @@ const characters = [
     "glasses": false,
     "beard": true,
     "umbrella": true,
-    "goodLooking": true
+    "smiling": true
   }
 ]
 
