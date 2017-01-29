@@ -4,7 +4,7 @@ const isGameFinished = function(grid, currentGuesses, bestScore) {
 
   grid.forEach(function(character) {
     if (character.name === "It's me!!!!!") {
-      if (currentGuesses < bestScore) {
+      if (bestScore === 0 || currentGuesses < bestScore) {
         localStorage.setItem('bestScore', JSON.stringify(currentGuesses));
       }
       return gameFinished(grid);
