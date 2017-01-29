@@ -15,13 +15,13 @@ Clone repository using git clone `https://github.com/mv86/guess-who-react`
 Download Node.js - install instructions [here](https://nodejs.org/en/download/)
 
 Terminal window 1; In root folder:
-⋅⋅1. npm init
-⋅⋅2. npm install
-⋅⋅3. npm install express
-⋅⋅4. npm start
+* npm init
+* npm install
+* npm install express
+* npm start
 
 Terminal window 2; In client folder:
-⋅⋅1. npm install
-⋅⋅2. npm start
+* npm install
+* npm start
 
 Application will run on localhost:3000
