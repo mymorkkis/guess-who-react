@@ -3,7 +3,7 @@ import Character from './Character.jsx';
 
 const Board = function(props) {
   return(
-    <div>
+    <div id="board">
       {props.characters.map(function(character, index) {
         return(<Character character={character} key={index} index={index}
           onClick={props.onButtonClick}></Character>)

@@ -64,9 +64,11 @@ class Game extends React.Component {
       <div>
       <h1>Guess who's top of Cohort 7!</h1>
       <Board characters={this.props.characters} onButtonClick={this.handleButtonClick}/>
-      <QuestionSelector questions={this.props.questions} onChange={this.handleSelectChange}/>
-      <p id="guesses">No of guesses: {this.state.guesses}</p>
-      <p id="best-score">Best score: {this.bestScore}</p>
+      <div id="info">
+        <QuestionSelector questions={this.props.questions} onChange={this.handleSelectChange}/>
+        <p id="guesses">No of guesses: {this.state.guesses}</p>
+        <p id="best-score">Best score: {this.bestScore}</p>
+      </div>
       </div>
       )
   }
