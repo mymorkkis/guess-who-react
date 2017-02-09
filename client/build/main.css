@@ -17,7 +17,7 @@ body{
 }
 
 .character{
-  background-color: white;
+  background-color: #5A17ED;
   border: 3px solid #101;
   min-height: 180px;
   min-width: 160px;
@@ -55,7 +55,7 @@ body{
   border-radius: 5px;
   border-color: #101;
   box-shadow: none;
-  background-color: #F0F8FF;
+  background-color: #C0FFEE;
   width: 90px;
   font-weight: bold;
 }
