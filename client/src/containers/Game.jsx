@@ -16,12 +16,12 @@ class Game extends React.Component {
       guesses: 0
     };
     this.handleSelectChange = this.handleSelectChange.bind(this);
-    this.handleButtonClick = this.handleButtonClick.bind(this);
-    this.bestScore = JSON.parse(localStorage.getItem('bestScore') || 0);
+    this.handleCharacterClick = this.handleCharacterClick.bind(this);
+    this.bestScore = JSON.parse(localStorage.getItem('GuessWhoC7BestScore') || 0);
     this.chosenCharacter = this.props.characters[Math.floor(Math.random()*this.props.characters.length)]
   }
 
-  handleButtonClick(e) {
+  handleCharacterClick(e) {
     const newGrid = this.state.grid.slice();
     const chosenCharacterId = this.chosenCharacter.id.toString();
     const value = e.target.value;
@@ -63,7 +63,7 @@ class Game extends React.Component {
     return(
       <div>
       <h1>Guess who's top of Cohort 7!</h1>
-      <Board characters={this.props.characters} onButtonClick={this.handleButtonClick}/>
+      <Board characters={this.props.characters} onButtonClick={this.handleCharacterClick}/>
       <div id="info">
         <QuestionSelector questions={this.props.questions} onChange={this.handleSelectChange}/>
         <p id="guesses">No of guesses: {this.state.guesses}</p>
