@@ -20058,10 +20058,10 @@
 	var singleCharacterCheck = function singleCharacterCheck(grid, guessedCharacter, actualCharacter) {
 	
 	  if (guessedCharacter === actualCharacter) {
-	    grid[guessedCharacter].picture = '/guess_who_players/me.png';
+	    grid[guessedCharacter].picture = '/guess_who_players/me.jpg';
 	    grid[guessedCharacter].name = "It's me!!!!!";
 	  } else {
-	    grid[guessedCharacter].picture = '/guess_who_players/x.png';
+	    grid[guessedCharacter].picture = '/guess_who_players/x.jpg';
 	    grid[guessedCharacter].name = 'Not me!!!';
 	  }
 	
@@ -20099,7 +20099,7 @@
 	
 	  grid.forEach(function (character) {
 	    if (character[selectValue] === boolean) {
-	      grid[character.id].picture = '/guess_who_players/x.png';
+	      grid[character.id].picture = '/guess_who_players/x.jpg';
 	      grid[character.id].name = 'Not me!!!';
 	    }
 	  });
@@ -20172,7 +20172,7 @@
 	
 	  grid.forEach(function (character) {
 	    if (character.name !== "It's me!!!!!") {
-	      grid[character.id].picture = '/guess_who_players/x.png';
+	      grid[character.id].picture = '/guess_who_players/x.jpg';
 	      grid[character.id].name = 'Not me!!!';
 	    }
 	  });
@@ -20193,7 +20193,7 @@
 	});
 	var characters = [{
 	  "id": 0,
-	  "picture": "./guess_who_players/adrian.png",
+	  "picture": "./guess_who_players/adrian.jpg",
 	  "name": "Adrian",
 	  "male": true,
 	  "brownHair": false,
@@ -20207,7 +20207,7 @@
 	  "smiling": true
 	}, {
 	  "id": 1,
-	  "picture": "./guess_who_players/alex.png",
+	  "picture": "./guess_who_players/alex.jpg",
 	  "name": "Alex",
 	  "male": true,
 	  "brownHair": true,
@@ -20221,7 +20221,7 @@
 	  "smiling": true
 	}, {
 	  "id": 2,
-	  "picture": "./guess_who_players/bertie.png",
+	  "picture": "./guess_who_players/bertie.jpg",
 	  "name": "Bertie",
 	  "male": true,
 	  "brownHair": true,
@@ -20235,7 +20235,7 @@
 	  "smiling": true
 	}, {
 	  "id": 3,
-	  "picture": "./guess_who_players/bobby.png",
+	  "picture": "./guess_who_players/bobby.jpg",
 	  "name": "Bobby",
 	  "male": true,
 	  "brownHair": false,
@@ -20249,7 +20249,7 @@
 	  "smiling": true
 	}, {
 	  "id": 4,
-	  "picture": "./guess_who_players/carlos.png",
+	  "picture": "./guess_who_players/carlos.jpg",
 	  "name": "Carlos",
 	  "male": true,
 	  "brownHair": false,
@@ -20263,7 +20263,7 @@
 	  "smiling": true
 	}, {
 	  "id": 5,
-	  "picture": "/guess_who_players/claudia.png",
+	  "picture": "/guess_who_players/claudia.jpg",
 	  "name": "Claudia",
 	  "male": false,
 	  "brownHair": true,
@@ -20277,7 +20277,7 @@
 	  "smiling": true
 	}, {
 	  "id": 6,
-	  "picture": "/guess_who_players/cookie.png",
+	  "picture": "/guess_who_players/cookie.jpg",
 	  "name": "Cookie",
 	  "male": false,
 	  "brownHair": true,
@@ -20291,7 +20291,7 @@
 	  "smiling": true
 	}, {
 	  "id": 7,
-	  "picture": "/guess_who_players/cyrus.png",
+	  "picture": "/guess_who_players/cyrus.jpg",
 	  "name": "Cyrus",
 	  "male": true,
 	  "brownHair": false,
@@ -20305,7 +20305,7 @@
 	  "smiling": true
 	}, {
 	  "id": 8,
-	  "picture": "/guess_who_players/david.png",
+	  "picture": "/guess_who_players/david.jpg",
 	  "name": "David",
 	  "male": true,
 	  "brownHair": false,
@@ -20319,7 +20319,7 @@
 	  "smiling": true
 	}, {
 	  "id": 9,
-	  "picture": "/guess_who_players/diana.png",
+	  "picture": "/guess_who_players/diana.jpg",
 	  "name": "Diana",
 	  "male": false,
 	  "brownHair": false,
@@ -20333,7 +20333,7 @@
 	  "smiling": true
 	}, {
 	  "id": 10,
-	  "picture": "/guess_who_players/euan.png",
+	  "picture": "/guess_who_players/euan.jpg",
 	  "name": "Euan",
 	  "male": true,
 	  "brownHair": false,
@@ -20347,7 +20347,7 @@
 	  "smiling": true
 	}, {
 	  "id": 11,
-	  "picture": "/guess_who_players/jo.png",
+	  "picture": "/guess_who_players/jo.jpg",
 	  "name": "Josephine",
 	  "male": false,
 	  "brownHair": true,
@@ -20361,7 +20361,7 @@
 	  "smiling": true
 	}, {
 	  "id": 12,
-	  "picture": "/guess_who_players/kate.png",
+	  "picture": "/guess_who_players/kate.jpg",
 	  "name": "Kate",
 	  "male": false,
 	  "brownHair": true,
@@ -20375,7 +20375,7 @@
 	  "smiling": true
 	}, {
 	  "id": 13,
-	  "picture": "/guess_who_players/kyle.png",
+	  "picture": "/guess_who_players/kyle.jpg",
 	  "name": "Kyle",
 	  "male": true,
 	  "brownHair": false,
@@ -20389,7 +20389,7 @@
 	  "smiling": true
 	}, {
 	  "id": 14,
-	  "picture": "/guess_who_players/matthew.png",
+	  "picture": "/guess_who_players/matthew.jpg",
 	  "name": "Matthew",
 	  "male": true,
 	  "brownHair": true,
@@ -20403,7 +20403,7 @@
 	  "smiling": true
 	}, {
 	  "id": 15,
-	  "picture": "/guess_who_players/max.png",
+	  "picture": "/guess_who_players/max.jpg",
 	  "name": "Max",
 	  "male": true,
 	  "brownHair": false,
@@ -20417,7 +20417,7 @@
 	  "smiling": true
 	}, {
 	  "id": 16,
-	  "picture": "/guess_who_players/paul.png",
+	  "picture": "/guess_who_players/paul.jpg",
 	  "name": "Paul",
 	  "male": true,
 	  "brownHair": false,
@@ -20431,7 +20431,7 @@
 	  "smiling": true
 	}, {
 	  "id": 17,
-	  "picture": "/guess_who_players/pavlos.png",
+	  "picture": "/guess_who_players/pavlos.jpg",
 	  "name": "Pavlos",
 	  "male": true,
 	  "brownHair": false,
@@ -20445,7 +20445,7 @@
 	  "smiling": true
 	}, {
 	  "id": 18,
-	  "picture": "/guess_who_players/ross.png",
+	  "picture": "/guess_who_players/ross.jpg",
 	  "name": "Ross",
 	  "male": true,
 	  "brownHair": false,
@@ -20459,7 +20459,7 @@
 	  "smiling": true
 	}, {
 	  "id": 19,
-	  "picture": "/guess_who_players/tomB.png",
+	  "picture": "/guess_who_players/tomB.jpg",
 	  "name": "Tom B",
 	  "male": true,
 	  "brownHair": false,
@@ -20473,7 +20473,7 @@
 	  "smiling": true
 	}, {
 	  "id": 20,
-	  "picture": "/guess_who_players/tomC.png",
+	  "picture": "/guess_who_players/tomC.jpg",
 	  "name": "Tom C",
 	  "male": true,
 	  "brownHair": true,

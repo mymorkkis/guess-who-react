@@ -13,7 +13,7 @@ const chosenValue = function(selectValue, grid, boolean) {
   
   grid.forEach(function(character) {
     if (character[selectValue] === boolean) {
-      grid[character.id].picture = '/guess_who_players/x.png';
+      grid[character.id].picture = '/guess_who_players/x.jpg';
       grid[character.id].name = 'Not me!!!';
     }
   })

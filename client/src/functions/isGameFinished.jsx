@@ -18,7 +18,7 @@ const gameFinished = function(grid) {
 
   grid.forEach(function(character) {
     if (character.name !== "It's me!!!!!") {
-      grid[character.id].picture = '/guess_who_players/x.png';
+      grid[character.id].picture = '/guess_who_players/x.jpg';
       grid[character.id].name = 'Not me!!!';
     }
   })
