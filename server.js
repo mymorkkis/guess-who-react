@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var path = require('path')
+var port = process.env.PORT || 3000;
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + '/client/build/index.html'));
@@ -8,10 +9,6 @@ app.get('/', function (req, res) {
 
 app.use(express.static('client/build'));
 
+app.listen(port);
 
-var server = app.listen(3000, function () {
-  var host = server.address().address;
-  var port = server.address().port;
-
-  console.log('Example app listening at http://%s:%s', host, port);
-});
+console.log("Server started....")
