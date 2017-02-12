@@ -3,6 +3,9 @@
 ## Description
 One player version of Guess Who. Play against the best score and try and guess who's the top of Cohort 7 in the least guesses possible. Weekend assignment while at CodeClan using ES2015 and React.
 
+## Browsers
+Best enjoyed on Google Chrome. Also tested on Opera and Firefox.
+
 ## Setup Instructions
 Clone repository using git clone `https://github.com/mv86/guess-who-react`
 
