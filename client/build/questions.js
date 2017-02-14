@@ -1,10 +1,10 @@
 const questions = [
   {
-    "question": "Please select a question.",
+    "question": "Please select a question",
     "value": "initialSelector"
   },
   {
-    "question": "Do they have a beard?",
+    "question": "Do they have facial hair?",
     "value": "beard"
   },
   {
@@ -20,8 +20,8 @@ const questions = [
     "value": "umbrella"
   },
   {
-    "question": "Are they smiling?",
-    "value": "smiling"
+    "question": "Can you see their teeth?",
+    "value": "teeth"
   },
   {
     "question": "Is their hair brown?",
@@ -40,8 +40,8 @@ const questions = [
     "value": "gingerHair"
   },
   {
-    "question": "Is their hair undefined?",
-    "value": "undefinedHair"
+    "question": "Is their hair short?",
+    "value": "short"
   }
 ];
 

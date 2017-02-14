@@ -27,7 +27,10 @@ class Game extends React.Component {
     const value = e.target.value;
     const currentBestScore = this.bestScore
     let addToGuesses = this.state.guesses;
-    addToGuesses ++;
+
+    if (newGrid[value].name !== "Not me!!!" && newGrid[value].name !== "It's me!!!!!") {
+      addToGuesses ++;
+    };
 
     const gridAfterCharacterCheck = singleCharacterCheck(newGrid, value, chosenCharacterId)
 
@@ -49,12 +52,12 @@ class Game extends React.Component {
 
     const updatedGrid =  multipleCharacterCheck(newGrid, chosenCharacter, selectValue);
 
-    const questionAskedDeleted = questionDeleter(questions, addToGuesses, selectValue)
+    const questionNotDeleted = questionDeleter(questions, addToGuesses, selectValue, updatedGrid)
 
     this.setState({
       selectValue: selectValue,
       grid: updatedGrid,
-      questions: questionAskedDeleted,
+      questions: questionNotDeleted,
       guesses: addToGuesses
     }); 
   }

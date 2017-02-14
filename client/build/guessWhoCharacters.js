@@ -8,11 +8,11 @@ const characters = [
     "blackHair": false,   
     "blondeHair": false,
     "gingerHair": false,
-    "undefinedHair": true,
+    "short": true,
     "glasses": false,
     "beard": false,
     "umbrella": false,
-    "smiling": true
+    "teeth": false
   },
   {
     "id": 1,
@@ -23,11 +23,11 @@ const characters = [
     "blackHair": false,  
     "blondeHair": false,
     "gingerHair": false,
-    "undefinedHair": false,
+    "short": false,
     "glasses": false,
-    "beard": false,
+    "beard": true,
     "umbrella": false,
-    "smiling": true
+    "teeth": false
   },
   {
     "id": 2,
@@ -38,11 +38,11 @@ const characters = [
     "blackHair": false,  
     "blondeHair": false,
     "gingerHair": false,
-    "undefinedHair": false,
+    "short": false,
     "glasses": false,
     "beard": false,
     "umbrella": false,
-    "smiling": true
+    "teeth": true
   },
   {
     "id": 3,
@@ -53,11 +53,11 @@ const characters = [
     "blackHair": false,   
     "blondeHair": true,
     "gingerHair": false,
-    "undefinedHair": false,
+    "short": false,
     "glasses": false,
     "beard": false,
     "umbrella": false,
-    "smiling": true
+    "teeth": true
   },
   {
     "id": 4,
@@ -68,11 +68,11 @@ const characters = [
     "blackHair": false,
     "blondeHair": false,
     "gingerHair": false,
-    "undefinedHair": true,
+    "short": true,
     "glasses": true,
     "beard": true,
     "umbrella": false,
-    "smiling": true
+    "teeth": false
   },
   {
     "id": 5,
@@ -83,11 +83,11 @@ const characters = [
     "blackHair": false,
     "blondeHair": false,
     "gingerHair": false,
-    "undefinedHair": false,
+    "short": false,
     "glasses": true,
     "beard": false,
     "umbrella": false,
-    "smiling": true
+    "teeth": false
   },
   {
     "id": 6,
@@ -98,11 +98,11 @@ const characters = [
     "blackHair": false,
     "blondeHair": false,
     "gingerHair": false,
-    "undefinedHair": false,
+    "short": false,
     "glasses": false,
     "beard": false,
     "umbrella": false,
-    "smiling": true
+    "teeth": false
   },
   {
     "id": 7,
@@ -113,11 +113,11 @@ const characters = [
     "blackHair": true,
     "blondeHair": false,
     "gingerHair": false,
-    "undefinedHair": false,
+    "short": false,
     "glasses": false,
     "beard": true,
     "umbrella": false,
-    "smiling": true
+    "teeth": true
   },
   {
     "id": 8,
@@ -128,11 +128,11 @@ const characters = [
     "blackHair": true,
     "blondeHair": false,
     "gingerHair": false,
-    "undefinedHair": false,
+    "short": false,
     "glasses": false,
     "beard": false,
     "umbrella": false,
-    "smiling": true
+    "teeth": true
   },
   {
     "id": 9,
@@ -143,11 +143,11 @@ const characters = [
     "blackHair": true,
     "blondeHair": false,
     "gingerHair": false,
-    "undefinedHair": false,
+    "short": false,
     "glasses": false,
     "beard": false,
     "umbrella": false,
-    "smiling": true
+    "teeth": true
   },
   {
     "id": 10,
@@ -158,11 +158,11 @@ const characters = [
     "blackHair": false,
     "blondeHair": false,
     "gingerHair": false,
-    "undefinedHair": true,
+    "short": true,
     "glasses": false,
-    "beard": false,
+    "beard": true,
     "umbrella": false,
-    "smiling": true
+    "teeth": false
   },
   {
     "id": 11,
@@ -173,11 +173,11 @@ const characters = [
     "blackHair": false,
     "blondeHair": false,
     "gingerHair": false,
-    "undefinedHair": false,
+    "short": false,
     "glasses": false,
     "beard": false,
     "umbrella": false,
-    "smiling": true
+    "teeth": true
   },
   {
     "id": 12,
@@ -188,11 +188,11 @@ const characters = [
     "blackHair": false,
     "blondeHair": false,
     "gingerHair": false,
-    "undefinedHair": false,
+    "short": false,
     "glasses": true,
     "beard": false,
     "umbrella": false,
-    "smiling": true
+    "teeth": true
   },
   {
     "id": 13,
@@ -203,11 +203,11 @@ const characters = [
     "blackHair": false,
     "blondeHair": true,
     "gingerHair": false,
-    "undefinedHair": false,
+    "short": false,
     "glasses": false,
     "beard": false,
     "umbrella": false,
-    "smiling": true
+    "teeth": false
   },
   {
     "id": 14,
@@ -218,11 +218,11 @@ const characters = [
     "blackHair": false,
     "blondeHair": false,
     "gingerHair": false,
-    "undefinedHair": false,
+    "short": false,
     "glasses": false,
     "beard": false,
     "umbrella": false,
-    "smiling": true
+    "teeth": true
   },
   {
     "id": 15,
@@ -233,11 +233,11 @@ const characters = [
     "blackHair": false,
     "blondeHair": false,
     "gingerHair": false,
-    "undefinedHair": true,
+    "short": true,
     "glasses": true,
     "beard": true,
     "umbrella": false,
-    "smiling": true
+    "teeth": false
   },
   {
     "id": 16,
@@ -248,11 +248,11 @@ const characters = [
     "blackHair": false,
     "blondeHair": false,
     "gingerHair": false,
-    "undefinedHair": true,
+    "short": true,
     "glasses": false,
     "beard": false,
     "umbrella": false,
-    "smiling": true
+    "teeth": true
   },
   {
     "id": 17,
@@ -263,11 +263,11 @@ const characters = [
     "blackHair": true,
     "blondeHair": false,
     "gingerHair": false,
-    "undefinedHair": false,
+    "short": false,
     "glasses": false,
     "beard": false,
     "umbrella": false,
-    "smiling": true
+    "teeth": false
   },
   {
     "id": 18,
@@ -278,11 +278,11 @@ const characters = [
     "blackHair": false,
     "blondeHair": false,
     "gingerHair": true,
-    "undefinedHair": false,
+    "short": false,
     "glasses": false,
     "beard": true,
     "umbrella": false,
-    "smiling": true
+    "teeth": true
   },
   {
     "id": 19,
@@ -293,11 +293,11 @@ const characters = [
     "blackHair": true,
     "blondeHair": false,
     "gingerHair": false,
-    "undefinedHair": false,
+    "short": false,
     "glasses": false,
     "beard": false,
     "umbrella": false,
-    "smiling": true
+    "teeth": true
   },
   {
     "id": 20,
@@ -308,11 +308,11 @@ const characters = [
     "blackHair": false,
     "blondeHair": false,
     "gingerHair": false,
-    "undefinedHair": false,
+    "short": false,
     "glasses": false,
     "beard": true,
     "umbrella": true,
-    "smiling": true
+    "teeth": true
   }
 ]
 

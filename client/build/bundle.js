@@ -19843,7 +19843,10 @@
 	      var value = e.target.value;
 	      var currentBestScore = this.bestScore;
 	      var addToGuesses = this.state.guesses;
-	      addToGuesses++;
+	
+	      if (newGrid[value].name !== "Not me!!!" && newGrid[value].name !== "It's me!!!!!") {
+	        addToGuesses++;
+	      };
 	
 	      var gridAfterCharacterCheck = (0, _singleCharacterCheck2.default)(newGrid, value, chosenCharacterId);
 	
@@ -19866,12 +19869,12 @@
 	
 	      var updatedGrid = (0, _multipleCharacterCheck2.default)(newGrid, chosenCharacter, selectValue);
 	
-	      var questionAskedDeleted = (0, _questionDeleter2.default)(questions, addToGuesses, selectValue);
+	      var questionNotDeleted = (0, _questionDeleter2.default)(questions, addToGuesses, selectValue, updatedGrid);
 	
 	      this.setState({
 	        selectValue: selectValue,
 	        grid: updatedGrid,
-	        questions: questionAskedDeleted,
+	        questions: questionNotDeleted,
 	        guesses: addToGuesses
 	      });
 	    }
@@ -19965,7 +19968,7 @@
 	var Character = function Character(props) {
 	  return _react2.default.createElement(
 	    "div",
-	    { className: "character", onClick: props.onClick },
+	    { className: "character" },
 	    _react2.default.createElement("img", { src: props.character.picture }),
 	    _react2.default.createElement(
 	      "p",
@@ -19974,7 +19977,7 @@
 	    ),
 	    _react2.default.createElement(
 	      "button",
-	      { value: props.index },
+	      { value: props.index, onClick: props.onClick },
 	      "Is it me?"
 	    )
 	  );
@@ -20125,12 +20128,46 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var questionDeleter = function questionDeleter(questions, noOfGuesses, value) {
+	var questionDeleter = function questionDeleter(questions, noOfGuesses, value, grid) {
+	
+	  var currentQuestions = [];
+	  var redundantQuestions = [];
+	  var uncheckedCharacters = [];
 	
 	  questions.forEach(function (question, index, questions) {
 	    if (question.value === value) {
 	      questions.splice(index, 1);
+	    } else {
+	      currentQuestions.push(question.value);
 	    }
+	  });
+	
+	  currentQuestions.splice(0, 1);
+	
+	  grid.forEach(function (character) {
+	    if (character.name !== 'Not me!!!') {
+	      uncheckedCharacters.push(character);
+	    }
+	  });
+	
+	  currentQuestions.forEach(function (questionValue) {
+	    var counter = 0;
+	    uncheckedCharacters.forEach(function (character) {
+	      if (character[questionValue] === true) {
+	        counter++;
+	      }
+	    });
+	    if (counter === 0 || counter === uncheckedCharacters.length) {
+	      redundantQuestions.push(questionValue);
+	    }
+	  });
+	
+	  redundantQuestions.forEach(function (questionValue) {
+	    questions.forEach(function (question, index, questions) {
+	      if (questionValue === question.value) {
+	        questions.splice(index, 1);
+	      }
+	    });
 	  });
 	
 	  return questions;
@@ -20200,11 +20237,11 @@
 	  "blackHair": false,
 	  "blondeHair": false,
 	  "gingerHair": false,
-	  "undefinedHair": true,
+	  "short": true,
 	  "glasses": false,
 	  "beard": false,
 	  "umbrella": false,
-	  "smiling": true
+	  "teeth": false
 	}, {
 	  "id": 1,
 	  "picture": "./guess_who_players/alex.jpg",
@@ -20214,11 +20251,11 @@
 	  "blackHair": false,
 	  "blondeHair": false,
 	  "gingerHair": false,
-	  "undefinedHair": false,
+	  "short": false,
 	  "glasses": false,
-	  "beard": false,
+	  "beard": true,
 	  "umbrella": false,
-	  "smiling": true
+	  "teeth": false
 	}, {
 	  "id": 2,
 	  "picture": "./guess_who_players/bertie.jpg",
@@ -20228,11 +20265,11 @@
 	  "blackHair": false,
 	  "blondeHair": false,
 	  "gingerHair": false,
-	  "undefinedHair": false,
+	  "short": false,
 	  "glasses": false,
 	  "beard": false,
 	  "umbrella": false,
-	  "smiling": true
+	  "teeth": true
 	}, {
 	  "id": 3,
 	  "picture": "./guess_who_players/bobby.jpg",
@@ -20242,11 +20279,11 @@
 	  "blackHair": false,
 	  "blondeHair": true,
 	  "gingerHair": false,
-	  "undefinedHair": false,
+	  "short": false,
 	  "glasses": false,
 	  "beard": false,
 	  "umbrella": false,
-	  "smiling": true
+	  "teeth": true
 	}, {
 	  "id": 4,
 	  "picture": "./guess_who_players/carlos.jpg",
@@ -20256,11 +20293,11 @@
 	  "blackHair": false,
 	  "blondeHair": false,
 	  "gingerHair": false,
-	  "undefinedHair": true,
+	  "short": true,
 	  "glasses": true,
 	  "beard": true,
 	  "umbrella": false,
-	  "smiling": true
+	  "teeth": false
 	}, {
 	  "id": 5,
 	  "picture": "/guess_who_players/claudia.jpg",
@@ -20270,11 +20307,11 @@
 	  "blackHair": false,
 	  "blondeHair": false,
 	  "gingerHair": false,
-	  "undefinedHair": false,
+	  "short": false,
 	  "glasses": true,
 	  "beard": false,
 	  "umbrella": false,
-	  "smiling": true
+	  "teeth": false
 	}, {
 	  "id": 6,
 	  "picture": "/guess_who_players/cookie.jpg",
@@ -20284,11 +20321,11 @@
 	  "blackHair": false,
 	  "blondeHair": false,
 	  "gingerHair": false,
-	  "undefinedHair": false,
+	  "short": false,
 	  "glasses": false,
 	  "beard": false,
 	  "umbrella": false,
-	  "smiling": true
+	  "teeth": false
 	}, {
 	  "id": 7,
 	  "picture": "/guess_who_players/cyrus.jpg",
@@ -20298,11 +20335,11 @@
 	  "blackHair": true,
 	  "blondeHair": false,
 	  "gingerHair": false,
-	  "undefinedHair": false,
+	  "short": false,
 	  "glasses": false,
 	  "beard": true,
 	  "umbrella": false,
-	  "smiling": true
+	  "teeth": true
 	}, {
 	  "id": 8,
 	  "picture": "/guess_who_players/david.jpg",
@@ -20312,11 +20349,11 @@
 	  "blackHair": true,
 	  "blondeHair": false,
 	  "gingerHair": false,
-	  "undefinedHair": false,
+	  "short": false,
 	  "glasses": false,
 	  "beard": false,
 	  "umbrella": false,
-	  "smiling": true
+	  "teeth": true
 	}, {
 	  "id": 9,
 	  "picture": "/guess_who_players/diana.jpg",
@@ -20326,11 +20363,11 @@
 	  "blackHair": true,
 	  "blondeHair": false,
 	  "gingerHair": false,
-	  "undefinedHair": false,
+	  "short": false,
 	  "glasses": false,
 	  "beard": false,
 	  "umbrella": false,
-	  "smiling": true
+	  "teeth": true
 	}, {
 	  "id": 10,
 	  "picture": "/guess_who_players/euan.jpg",
@@ -20340,11 +20377,11 @@
 	  "blackHair": false,
 	  "blondeHair": false,
 	  "gingerHair": false,
-	  "undefinedHair": true,
+	  "short": true,
 	  "glasses": false,
-	  "beard": false,
+	  "beard": true,
 	  "umbrella": false,
-	  "smiling": true
+	  "teeth": false
 	}, {
 	  "id": 11,
 	  "picture": "/guess_who_players/jo.jpg",
@@ -20354,11 +20391,11 @@
 	  "blackHair": false,
 	  "blondeHair": false,
 	  "gingerHair": false,
-	  "undefinedHair": false,
+	  "short": false,
 	  "glasses": false,
 	  "beard": false,
 	  "umbrella": false,
-	  "smiling": true
+	  "teeth": true
 	}, {
 	  "id": 12,
 	  "picture": "/guess_who_players/kate.jpg",
@@ -20368,11 +20405,11 @@
 	  "blackHair": false,
 	  "blondeHair": false,
 	  "gingerHair": false,
-	  "undefinedHair": false,
+	  "short": false,
 	  "glasses": true,
 	  "beard": false,
 	  "umbrella": false,
-	  "smiling": true
+	  "teeth": true
 	}, {
 	  "id": 13,
 	  "picture": "/guess_who_players/kyle.jpg",
@@ -20382,11 +20419,11 @@
 	  "blackHair": false,
 	  "blondeHair": true,
 	  "gingerHair": false,
-	  "undefinedHair": false,
+	  "short": false,
 	  "glasses": false,
 	  "beard": false,
 	  "umbrella": false,
-	  "smiling": true
+	  "teeth": false
 	}, {
 	  "id": 14,
 	  "picture": "/guess_who_players/matthew.jpg",
@@ -20396,11 +20433,11 @@
 	  "blackHair": false,
 	  "blondeHair": false,
 	  "gingerHair": false,
-	  "undefinedHair": false,
+	  "short": false,
 	  "glasses": false,
 	  "beard": false,
 	  "umbrella": false,
-	  "smiling": true
+	  "teeth": true
 	}, {
 	  "id": 15,
 	  "picture": "/guess_who_players/max.jpg",
@@ -20410,11 +20447,11 @@
 	  "blackHair": false,
 	  "blondeHair": false,
 	  "gingerHair": false,
-	  "undefinedHair": true,
+	  "short": true,
 	  "glasses": true,
 	  "beard": true,
 	  "umbrella": false,
-	  "smiling": true
+	  "teeth": false
 	}, {
 	  "id": 16,
 	  "picture": "/guess_who_players/paul.jpg",
@@ -20424,11 +20461,11 @@
 	  "blackHair": false,
 	  "blondeHair": false,
 	  "gingerHair": false,
-	  "undefinedHair": true,
+	  "short": true,
 	  "glasses": false,
 	  "beard": false,
 	  "umbrella": false,
-	  "smiling": true
+	  "teeth": true
 	}, {
 	  "id": 17,
 	  "picture": "/guess_who_players/pavlos.jpg",
@@ -20438,11 +20475,11 @@
 	  "blackHair": true,
 	  "blondeHair": false,
 	  "gingerHair": false,
-	  "undefinedHair": false,
+	  "short": false,
 	  "glasses": false,
 	  "beard": false,
 	  "umbrella": false,
-	  "smiling": true
+	  "teeth": false
 	}, {
 	  "id": 18,
 	  "picture": "/guess_who_players/ross.jpg",
@@ -20452,11 +20489,11 @@
 	  "blackHair": false,
 	  "blondeHair": false,
 	  "gingerHair": true,
-	  "undefinedHair": false,
+	  "short": false,
 	  "glasses": false,
 	  "beard": true,
 	  "umbrella": false,
-	  "smiling": true
+	  "teeth": true
 	}, {
 	  "id": 19,
 	  "picture": "/guess_who_players/tomB.jpg",
@@ -20466,11 +20503,11 @@
 	  "blackHair": true,
 	  "blondeHair": false,
 	  "gingerHair": false,
-	  "undefinedHair": false,
+	  "short": false,
 	  "glasses": false,
 	  "beard": false,
 	  "umbrella": false,
-	  "smiling": true
+	  "teeth": true
 	}, {
 	  "id": 20,
 	  "picture": "/guess_who_players/tomC.jpg",
@@ -20480,11 +20517,11 @@
 	  "blackHair": false,
 	  "blondeHair": false,
 	  "gingerHair": false,
-	  "undefinedHair": false,
+	  "short": false,
 	  "glasses": false,
 	  "beard": true,
 	  "umbrella": true,
-	  "smiling": true
+	  "teeth": true
 	}];
 	
 	exports.default = characters;
@@ -20499,10 +20536,10 @@
 	  value: true
 	});
 	var questions = [{
-	  "question": "Please select a question.",
+	  "question": "Please select a question",
 	  "value": "initialSelector"
 	}, {
-	  "question": "Do they have a beard?",
+	  "question": "Do they have facial hair?",
 	  "value": "beard"
 	}, {
 	  "question": "Do they wear glasses?",
@@ -20514,8 +20551,8 @@
 	  "question": "Do they have an umbrella?",
 	  "value": "umbrella"
 	}, {
-	  "question": "Are they smiling?",
-	  "value": "smiling"
+	  "question": "Can you see their teeth?",
+	  "value": "teeth"
 	}, {
 	  "question": "Is their hair brown?",
 	  "value": "brownHair"
@@ -20529,8 +20566,8 @@
 	  "question": "Is their hair ginger?",
 	  "value": "gingerHair"
 	}, {
-	  "question": "Is their hair undefined?",
-	  "value": "undefinedHair"
+	  "question": "Is their hair short?",
+	  "value": "short"
 	}];
 	
 	exports.default = questions;
