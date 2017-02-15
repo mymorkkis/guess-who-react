@@ -17,14 +17,15 @@ class Game extends React.Component {
     };
     this.handleSelectChange = this.handleSelectChange.bind(this);
     this.handleCharacterClick = this.handleCharacterClick.bind(this);
+    this.handleRefreshClick = this.handleRefreshClick.bind(this);
     this.bestScore = JSON.parse(localStorage.getItem('GuessWhoC7BestScore') || 0);
-    this.chosenCharacter = this.props.characters[Math.floor(Math.random()*this.props.characters.length)]
+    this.chosenCharacter = this.props.characters[Math.floor(Math.random()*this.props.characters.length)];
   }
 
-  handleCharacterClick(e) {
+  handleCharacterClick(event) {
     const newGrid = this.state.grid.slice();
     const chosenCharacterId = this.chosenCharacter.id.toString();
-    const value = e.target.value;
+    const value = event.target.value;
     const currentBestScore = this.bestScore
     let addToGuesses = this.state.guesses;
 
@@ -42,9 +43,9 @@ class Game extends React.Component {
     })
   }
 
-  handleSelectChange(e) {
+  handleSelectChange(event) {
     const newGrid = this.state.grid.slice();
-    const selectValue = e.target.value;
+    const selectValue = event.target.value;
     const chosenCharacter = this.chosenCharacter;
     const questions = this.state.questions;
     let addToGuesses = this.state.guesses;
@@ -62,15 +63,22 @@ class Game extends React.Component {
     }); 
   }
 
+  handleRefreshClick() {
+    window.location.reload();
+  }
+
   render() {
     return(
       <div>
-      <h1>Guess who's top of Cohort 7!</h1>
-      <Board characters={this.props.characters} onButtonClick={this.handleCharacterClick}/>
+      <h1>Guess Who's Top Of Cohort 7!</h1>
       <div id="info">
+        <p className="info-component">No Of Guesses: {this.state.guesses}</p>
+        <p className="info-component">Best Score: {this.bestScore}</p>
+      </div>
+      <Board characters={this.props.characters} onButtonClick={this.handleCharacterClick}/>
+      <div id="gameplay">
         <QuestionSelector questions={this.props.questions} onChange={this.handleSelectChange}/>
-        <p id="guesses">No of guesses: {this.state.guesses}</p>
-        <p id="best-score">Best score: {this.bestScore}</p>
+        <button className="gameplay-component" onClick={this.handleRefreshClick}>Play Again?</button>
       </div>
       </div>
       )

@@ -19830,6 +19830,7 @@
 	    };
 	    _this.handleSelectChange = _this.handleSelectChange.bind(_this);
 	    _this.handleCharacterClick = _this.handleCharacterClick.bind(_this);
+	    _this.handleRefreshClick = _this.handleRefreshClick.bind(_this);
 	    _this.bestScore = JSON.parse(localStorage.getItem('GuessWhoC7BestScore') || 0);
 	    _this.chosenCharacter = _this.props.characters[Math.floor(Math.random() * _this.props.characters.length)];
 	    return _this;
@@ -19837,10 +19838,10 @@
 	
 	  _createClass(Game, [{
 	    key: 'handleCharacterClick',
-	    value: function handleCharacterClick(e) {
+	    value: function handleCharacterClick(event) {
 	      var newGrid = this.state.grid.slice();
 	      var chosenCharacterId = this.chosenCharacter.id.toString();
-	      var value = e.target.value;
+	      var value = event.target.value;
 	      var currentBestScore = this.bestScore;
 	      var addToGuesses = this.state.guesses;
 	
@@ -19859,9 +19860,9 @@
 	    }
 	  }, {
 	    key: 'handleSelectChange',
-	    value: function handleSelectChange(e) {
+	    value: function handleSelectChange(event) {
 	      var newGrid = this.state.grid.slice();
-	      var selectValue = e.target.value;
+	      var selectValue = event.target.value;
 	      var chosenCharacter = this.chosenCharacter;
 	      var questions = this.state.questions;
 	      var addToGuesses = this.state.guesses;
@@ -19879,6 +19880,11 @@
 	      });
 	    }
 	  }, {
+	    key: 'handleRefreshClick',
+	    value: function handleRefreshClick() {
+	      window.location.reload();
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
@@ -19887,24 +19893,33 @@
 	        _react2.default.createElement(
 	          'h1',
 	          null,
-	          'Guess who\'s top of Cohort 7!'
+	          'Guess Who\'s Top Of Cohort 7!'
 	        ),
-	        _react2.default.createElement(_Board2.default, { characters: this.props.characters, onButtonClick: this.handleCharacterClick }),
 	        _react2.default.createElement(
 	          'div',
 	          { id: 'info' },
-	          _react2.default.createElement(_QuestionSelector2.default, { questions: this.props.questions, onChange: this.handleSelectChange }),
 	          _react2.default.createElement(
 	            'p',
-	            { id: 'guesses' },
-	            'No of guesses: ',
+	            { className: 'info-component' },
+	            'No Of Guesses: ',
 	            this.state.guesses
 	          ),
 	          _react2.default.createElement(
 	            'p',
-	            { id: 'best-score' },
-	            'Best score: ',
+	            { className: 'info-component' },
+	            'Best Score: ',
 	            this.bestScore
+	          )
+	        ),
+	        _react2.default.createElement(_Board2.default, { characters: this.props.characters, onButtonClick: this.handleCharacterClick }),
+	        _react2.default.createElement(
+	          'div',
+	          { id: 'gameplay' },
+	          _react2.default.createElement(_QuestionSelector2.default, { questions: this.props.questions, onChange: this.handleSelectChange }),
+	          _react2.default.createElement(
+	            'button',
+	            { className: 'gameplay-component', onClick: this.handleRefreshClick },
+	            'Play Again?'
 	          )
 	        )
 	      );
@@ -20023,7 +20038,7 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        "select",
-	        { id: "question-selector", value: "initialSelector", onChange: this.props.onChange },
+	        { className: "gameplay-component", value: "initialSelector", onChange: this.props.onChange },
 	        this.props.questions.map(function (question, index) {
 	          return _react2.default.createElement(
 	            "option",
@@ -20137,9 +20152,11 @@
 	  questions.forEach(function (question, index, questions) {
 	    if (question.value === value) {
 	      questions.splice(index, 1);
-	    } else {
-	      currentQuestions.push(question.value);
 	    }
+	  });
+	
+	  questions.forEach(function (question) {
+	    currentQuestions.push(question.value);
 	  });
 	
 	  currentQuestions.splice(0, 1);
@@ -20152,11 +20169,13 @@
 	
 	  currentQuestions.forEach(function (questionValue) {
 	    var counter = 0;
+	
 	    uncheckedCharacters.forEach(function (character) {
 	      if (character[questionValue] === true) {
 	        counter++;
 	      }
 	    });
+	
 	    if (counter === 0 || counter === uncheckedCharacters.length) {
 	      redundantQuestions.push(questionValue);
 	    }
