@@ -20145,7 +20145,6 @@
 	
 	var questionDeleter = function questionDeleter(questions, noOfGuesses, value, grid) {
 	
-	  var currentQuestions = [];
 	  var redundantQuestions = [];
 	  var uncheckedCharacters = [];
 	
@@ -20155,29 +20154,26 @@
 	    }
 	  });
 	
-	  questions.forEach(function (question) {
-	    currentQuestions.push(question.value);
-	  });
-	
-	  currentQuestions.splice(0, 1);
-	
 	  grid.forEach(function (character) {
 	    if (character.name !== 'Not me!!!') {
 	      uncheckedCharacters.push(character);
 	    }
 	  });
 	
-	  currentQuestions.forEach(function (questionValue) {
+	  questions.forEach(function (question) {
 	    var counter = 0;
 	
-	    uncheckedCharacters.forEach(function (character) {
-	      if (character[questionValue] === true) {
-	        counter++;
-	      }
-	    });
+	    if (question.value !== 'initialSelector') {
 	
-	    if (counter === 0 || counter === uncheckedCharacters.length) {
-	      redundantQuestions.push(questionValue);
+	      uncheckedCharacters.forEach(function (character) {
+	        if (character[question.value] === true) {
+	          counter++;
+	        }
+	      });
+	
+	      if (counter === 0 || counter === uncheckedCharacters.length) {
+	        redundantQuestions.push(question.value);
+	      }
 	    }
 	  });
 	

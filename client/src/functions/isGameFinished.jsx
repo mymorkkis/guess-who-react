@@ -1,6 +1,7 @@
 import React from 'react';
 
 const isGameFinished = function(grid, currentGuesses, bestScore) {
+  
 
   grid.forEach(function(character) {
     if (character.name === "It's me!!!!!") {
@@ -13,6 +14,7 @@ const isGameFinished = function(grid, currentGuesses, bestScore) {
   
   return grid;
 }
+
 
 const gameFinished = function(grid) {
 

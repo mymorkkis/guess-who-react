@@ -2,12 +2,14 @@ import React from 'react';
 
 const multipleCharacterCheck = function(grid, chosenCharacter, selectValue) {
 
+
   if (chosenCharacter[selectValue]) {
     return chosenValue(selectValue, grid, false)
   } else {
     return chosenValue(selectValue, grid, true)
   }
 }
+
 
 const chosenValue = function(selectValue, grid, boolean) {
   
