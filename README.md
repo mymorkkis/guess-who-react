@@ -6,9 +6,6 @@ One player version of Guess Who. Play against the best score and try and guess w
 ## Browsers
 Best enjoyed on Google Chrome. Also tested on Opera and Firefox.
 
-## Heroku
-http://guesswhocohortseven.herokuapp.com/
-
 ## Setup Instructions
 Clone repository using git clone `https://github.com/mv86/guess-who-react`
 
